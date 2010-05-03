@@ -1,0 +1,9 @@
+This is an implementation of Amazon Product Advertising API in Python.
+
+Thanks to following.
+  - PyAWS
+    http://pyaws.sourceforge.net/
+  - python-amazon-product-api
+    http://pypi.python.org/pypi/python-amazon-product-api
+  - ryo_abe
+    http://d.hatena.ne.jp/ryo_abe/20100416/1271384372
