@@ -37,7 +37,7 @@ LOCALE_DOMAINS = {
   "us" : "ecs.amazonaws.us"
 }
 
-class ProductAdvertising:
+class ProductAdvertising(object):
 
   def __init__(self, licenseKey, secretLicenseKey, locale=None):
     self.setLicenseKey(licenseKey)
