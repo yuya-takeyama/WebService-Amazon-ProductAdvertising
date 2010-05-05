@@ -12,7 +12,7 @@ class Element(object):
   def __init__(self, name, attributes):
     self.name = name
     self.attributes = attributes
-    self.cdata = ''
+    self.cdata = u''
     self.children = []
 
   def __getattr__(self, key):
@@ -38,8 +38,8 @@ class Xml2Obj(object):
     self.nodeStack = []
 
   def StartElement(self, name, attributes):
-    attributes = dict([(key, attributes[key].encode("utf-8")) for key in attributes])
-    element = Element(name.encode("utf-8"), attributes)
+    attributes = dict([(key, attributes[key].decode("utf-8")) for key in attributes])
+    element = Element(name.decode("utf-8"), attributes)
     if self.nodeStack:
       parent = self.nodeStack[-1]
       parent.addChild(element)
@@ -54,7 +54,7 @@ class Xml2Obj(object):
 
   def CharacterData(self, data):
     if data.strip():
-      data = data.encode("utf-8")
+      data = data.decode("utf-8")
       element = self.nodeStack[-1]
       element.cdata += data
 

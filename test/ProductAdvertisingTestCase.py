@@ -57,4 +57,12 @@ class ProductAdvertisingTestCase(unittest.TestCase):
     elem = self.pa.call("ItemSearch", SearchIndex='Music', Keywords='Pentagram')
     self.assertEqual(elem.Items[0].Request[0].IsValid[0].getData(), "True")
 
+  def testCharacterType(self):
+    elem = self.pa.call("ItemLookup", ItemId='B00005GFLD')
+    title = elem.Items[0].Item[0].ItemAttributes[0].Title[0].getData()
+    self.assert_(isinstance(title, unicode))
+
+  def testDefaultEncoding(self):
+    self.assertEqual(sys.getdefaultencoding(), 'utf-8', "You have to put sys.setdefaultencoding('utf-8') on sitecustomize.py.")
+
 unittest.main()
